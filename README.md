@@ -1,4 +1,5 @@
 REGRAS GERAIS:
+
    1 - A idéia principal é adivinhar um número no intervalo entre 0 a 100, sem levar em conta os limites, ou seja , nem o número '0 'e nem o número '100 ' servem, somente os números entre eles. O acertador, "Adivinhão comeu carne de pavão", toma uma dose.
    2 - Podem jogar qualquer número de pessoas, contanto que dentro da rodada cada participante tenha o direito a apenas um palpite.
    3 - A rodada inicia com quem "perdeu" ou "bebeu", e segue no sentido horário entre os participantes.
@@ -13,9 +14,3 @@ REGRAS GERAIS:
 
 Desejo boas gargalhadas!
 
-********************************************************
-Esquema da pasta dos arquivo:
-- Adivinhao
---- index.php
---- script.js
---- style.css
