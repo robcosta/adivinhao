@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhão</title>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body onload="iniciar()">
+    <session class="container wrap">
+        <h1>Adivinhe o Número</h1>
+
+        <div class="retangulo">
+            <div id="sorteado"></div>
+        </div>
+        
+        <input type="number" class="retangulo" id="palpite" onclick="delPalpite()">
+        </div>
+        <button onclick="verificaNumero()" id="button">Jogar</button>
+        <div class="mensagem" id="mensagem">Msg: Adivinhe o número entre <strong>0</strong> e <strong>100</strong>.</div>
+        <div class="mensagem" id="tentativa">Tentativa(s): <strong>0</strong></div>
+    </session>
+</body>
+</html>
