@@ -9,8 +9,10 @@
 </head>
 <body onload="iniciar()">
     <session class="container wrap">
-        <h1>Adivinhe o Número</h1>
-
+        <h1>Adivinhe o Número<br/>Entre<br/>
+            <strong id="limite_inferior">0</strong> ~ 
+            <strong id="limite_superior">100</strong>
+        </h1>
         <div class="retangulo">
             <div id="sorteado"></div>
         </div>
@@ -22,7 +24,7 @@
         >
         </div>
         <div id="bigMensagem">Início do Jogo</div>
-        <div class="mensagem" id="mensagem">Msg: Adivinhe o número entre <strong>0</strong> e <strong>100</strong>.</div>
+        
         <div class="mensagem" id="tentativa">Tentativa(s): <strong>0</strong></div>
     </session>
 </body>

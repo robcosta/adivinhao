@@ -10,42 +10,44 @@ function iniciar(){
 
 function verificaNumero(){
     var novoJogo = document.getElementById("bigMensagem").innerHTML
-    if(novoJogo == "Ganhou!!!" || novoJogo=="Perdeu!!!"){
+    if(novoJogo == "Ganhou!!! Beba UMA!" || novoJogo=="Perdeu!!! Beba DUAS!"){
         window.location.href = window.location.href;
-        return true; 
     }
     
-    document.getElementById("bigMensagem").innerHTML = "ERROU !!! Insira seu palpite!";    
-
     var palpite = parseInt(document.getElementById("palpite").value);
 
-
+    //Verifica se o palpite está dentro do limite
     if(palpite <= limInferior ||  palpite >= limSuperior){
         document.getElementById("sorteado").innerHTML = sorteado;
-        mensagem("Palpite fora do intervalo (<strong>"+limInferior
-            +"~"+limSuperior+"</strong> ) BEBA DUAS DOSES!", true);
-        document.getElementById("bigMensagem").innerHTML = "Perdeu!!!";    
-        return true;
-        }
-        
-        if(palpite == sorteado){
+        document.getElementById("bigMensagem").innerHTML = "Perdeu!!! Beba DUAS!";
+        adicionaTentativa();
+        return true;    
+    }
+    //Verifica se acertou o número    
+    if(palpite == sorteado){
         document.getElementById("sorteado").innerHTML = sorteado;
-        document.getElementById("bigMensagem").innerHTML = "Ganhou!!!";    
-        mensagem("Adivinhão, comeu carne de pavão!!! Agora BEBA uma dose!");
-        return true;
-        } else if (palpite < sorteado){
-        limInferior = palpite;        
-        } else if (palpite > sorteado){
-        limSuperior = palpite;       
-        }
-        mensagem("Qual o número entre <strong>"+limInferior+"</strong> e <strong>"+limSuperior+"</strong>?");
-        return false;
+        document.getElementById("bigMensagem").innerHTML = "Ganhou!!! Beba UMA!";    
+        adicionaTentativa(); 
+        return true;       
+    } else if (palpite < sorteado){
+        limInferior = palpite;
+        document.getElementById("limite_inferior").style.color = "#ff0000";      
+        document.getElementById("limite_superior").style.color = "#000000";
+
+    } else if (palpite > sorteado){
+        limSuperior = palpite;
+        document.getElementById("limite_inferior").style.color = "#000000";      
+        document.getElementById("limite_superior").style.color = "#ff0000";       
+    }
+    document.getElementById("limite_superior").innerHTML = limSuperior;
+    document.getElementById("limite_inferior").innerHTML = limInferior;
+    document.getElementById("bigMensagem").innerHTML = "ERROU !!! Insira seu palpite!";   
+    adicionaTentativa();
+    return false;
 }
 
-function mensagem(msg){
-    var mensagem = document.getElementById("mensagem");
+function adicionaTentativa(){
     tentativa++;
-    mensagem.innerHTML = "Msg: " + msg;
     document.getElementById("tentativa").innerHTML = "Tentativa(s): <strong>"+tentativa+"</strong>";
 }
 
@@ -54,11 +56,12 @@ function delPalpite(){
 }
 
 function teclouEnter(event){
-
    if(event.keyCode == 13){
         var finalizado = verificaNumero();
         if(!finalizado){
             delPalpite();
+        } else {
+            document.getElementById("tentativa").innerHTML = "Tentativa(s): <strong>"+tentativa+"</strong>&emsp;&emsp;&emsp;&emsp;<span style='color:#ff0000'>Tecle ENTER para reiniciar</span>.";
         }
     }
 }
