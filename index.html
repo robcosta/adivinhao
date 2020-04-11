@@ -15,9 +15,13 @@
             <div id="sorteado"></div>
         </div>
         
-        <input type="number" class="retangulo" id="palpite" onclick="delPalpite()">
+        <input type="number" class="retangulo" id="palpite" 
+            onclick="delPalpite()" 
+            onKeyDown="teclouEnter(event)"
+            autofocus    
+        >
         </div>
-        <button onclick="verificaNumero()" id="button">Jogar</button>
+        <div id="bigMensagem">Início do Jogo</div>
         <div class="mensagem" id="mensagem">Msg: Adivinhe o número entre <strong>0</strong> e <strong>100</strong>.</div>
         <div class="mensagem" id="tentativa">Tentativa(s): <strong>0</strong></div>
     </session>

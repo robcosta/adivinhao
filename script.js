@@ -9,47 +9,56 @@ function iniciar(){
 }
 
 function verificaNumero(){
-    var novoJogo = document.getElementById("button").innerHTML
-    if(novoJogo == "Jogar Novamente?"){
+    var novoJogo = document.getElementById("bigMensagem").innerHTML
+    if(novoJogo == "Ganhou!!!" || novoJogo=="Perdeu!!!"){
         window.location.href = window.location.href;
-        return; 
+        return true; 
     }
     
+    document.getElementById("bigMensagem").innerHTML = "ERROU !!! Insira seu palpite!";    
+
     var palpite = parseInt(document.getElementById("palpite").value);
 
 
     if(palpite <= limInferior ||  palpite >= limSuperior){
-        mensagem("Perdeu!!! Palpite fora do intervalo (<strong>"+limInferior
-            +"~"+limSuperior+"</strong> ) BEBA DUAS DOSES!", true);
-        return;
-    }
-
-    if(palpite == sorteado){
         document.getElementById("sorteado").innerHTML = sorteado;
-        mensagem("Adivinhão, comeu carne de pavão!!! Agora BEBA uma dose!", true);
-        return;
-    } else if (palpite < sorteado){
+        mensagem("Palpite fora do intervalo (<strong>"+limInferior
+            +"~"+limSuperior+"</strong> ) BEBA DUAS DOSES!", true);
+        document.getElementById("bigMensagem").innerHTML = "Perdeu!!!";    
+        return true;
+        }
+        
+        if(palpite == sorteado){
+        document.getElementById("sorteado").innerHTML = sorteado;
+        document.getElementById("bigMensagem").innerHTML = "Ganhou!!!";    
+        mensagem("Adivinhão, comeu carne de pavão!!! Agora BEBA uma dose!");
+        return true;
+        } else if (palpite < sorteado){
         limInferior = palpite;        
-    } else if (palpite > sorteado){
+        } else if (palpite > sorteado){
         limSuperior = palpite;       
-    }
-    mensagem("Errou!!! Qual o número entre <strong>"+limInferior+
-    "</strong> e <strong>"+limSuperior+"</strong>?");
-    return
+        }
+        mensagem("Qual o número entre <strong>"+limInferior+"</strong> e <strong>"+limSuperior+"</strong>?");
+        return false;
 }
 
-function mensagem(msg, flag=false ){
+function mensagem(msg){
     var mensagem = document.getElementById("mensagem");
     tentativa++;
     mensagem.innerHTML = "Msg: " + msg;
     document.getElementById("tentativa").innerHTML = "Tentativa(s): <strong>"+tentativa+"</strong>";
-
-    if(flag){        
-        document.getElementById("button").innerHTML = "Jogar Novamente?";
-    }
-
 }
 
 function delPalpite(){
     document.getElementById("palpite").value = "";
+}
+
+function teclouEnter(event){
+
+   if(event.keyCode == 13){
+        var finalizado = verificaNumero();
+        if(!finalizado){
+            delPalpite();
+        }
+    }
 }
