@@ -17,9 +17,12 @@ REGRAS GERAIS:
                          
                          Palpite 3 => 53 => O sitema emite uma mensagem de errou e refaz o intervalo, que agora é entre 53 e 70.
                          
-                         E assim sucessivamente até que alguém acerte o número em um dos palpites ou seja obrigado a escolher o único número restante do intervalo, que no exemplo acima seria a escolha do número  no intervalo entre  64 e 66, desta forma somente resta o "palpite" 65 para o jogador.
+                         E assim sucessivamente até que alguém acerte o número em um dos palpites ou seja obrigado a escolher o único
+número restante do intervalo, que no exemplo acima seria a escolha do número  no intervalo entre  64 e 66, desta forma somente resta o
+"palpite" 65 para o jogador.
                          
-    5 - Caso algum participante informe um número fora do intervalo correto, com por exempo, o intervalo da segunda passagem entre 40 e 70, o participante na sua vez escolhe o número 30, como está fora do intervalo (40~70) o jogo para e o "desatencioso" toma duas.
+    5 - Caso algum participante informe um número fora do intervalo correto, com por exempo, o intervalo da segunda passagem entre 4
+ e 70, o participante na sua vez escolhe o número 30, como está fora do intervalo (40~70) o jogo para e o "desatencioso" toma duas.
     
 
 Desejo boas gargalhadas!
