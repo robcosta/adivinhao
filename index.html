@@ -17,10 +17,11 @@
             <div id="sorteado"></div>
         </div>
         
-        <input type="number" class="retangulo" id="palpite" 
+        <input type="text" class="retangulo" id="palpite" 
             onclick="delPalpite()" 
             onKeyDown="teclouEnter(event)"
-            autofocus    
+            autofocus 
+            onkeypress="return doisDigitos(event)"   
         >
         </div>
         <div id="bigMensagem">Início do Jogo</div>
